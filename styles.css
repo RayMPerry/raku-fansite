@@ -24,6 +24,8 @@ nav li {
     cursor: pointer;
 }
 
+p { font-family: "Open Sans", sans-serif; }
+
 .heading-font { font-family: "Fira Sans", sans-serif; }
 .subheading-font { font-family: "Open Sans", sans-serif; }
 
