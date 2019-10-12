@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Raku Programming Language</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Open+Sans&display=swap" rel="stylesheet" />
+        <link href="https://unpkg.com/tachyons@4.11.1/css/tachyons.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="styles.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header class="tc w-100 pt2 pb2 near-black bg-near-white flex justify-center items-center">
+            <img class="w-10" alt="Camelia, the Raku Mascot" src="assets/camelia-logo.png"/>
+            <div class="pa4">
+                <h1 class="pt3 heading-font">Raku</h1>
+                <h3 class="fw5 i subheading-font">A powerful general-purpose, multi-paradigm language</h3>
+            </div>
+        </header>
+        <nav class="pt1 pb1 w-100 white bg-near-black">
+            <ul class="list pa0 flex justify-around items-center subheading-font">
+                <!-- <li class="pointer dim">Home</li> -->
+                <div class="flex flex justify-between items-center">
+                    <li class="pointer dim flex justify-between items-center">
+                        <span>Download</span>
+                        <span class="moon-gray ml1 mr2">(2019.03/6.d)</span>
+                    </li>
+                    <span class="new-release bg-dark-red b white">NEW</span>
+                </div>
+                <li class="pointer dim">Community</li>
+                <li class="pointer dim flex justify-between items-center">
+                    <span>Documentation</span>
+                    <i class="material-icons ml1 small-icon">exit_to_app</i>
+                </li>
+                <li class="pointer dim flex justify-between items-center">
+                    <span>Resources</span>
+                    <i class="material-icons">arrow_drop_down</i>
+                </li>
+                <!-- <li class="pointer dim">Modules</li> -->
+                <!-- <li class="pointer dim">Fun</li> -->
+                <!-- <li class="pointer dim">Whatever</li> -->
+                <li class="pointer dim flex justify-between items-center">
+                    <span>FAQ</span>
+                    <i class="material-icons ml1 small-icon">exit_to_app</i>
+                </li>
+            </ul>
+        </nav>
+        <section class="pt2 pb2 pl4 pr4 bg-near-white near-black">
+            <p class="i">Many new features greatly advance our tradition of expressive and feature-rich programming</p>
+            <ul>
+                <li>Object-oriented programming including generics, roles and multiple dispatch</li>
+                <li>Functional programming primitives, lazy and eager list evaluation, junctions, autothreading and hyperoperators (vector operators)</li>
+                <li>Parallelism, concurrency, and asynchrony including multi-core support</li>
+                <li>Definable grammars for pattern matching and generalized string processing</li>
+                <li>Optional and gradual typing</li>
+            </ul>
+        </section>
+        <section class="flex justify-between pa3 patterned">
+            <article class="pa2 ml3 mr3 flex flex-column space-between">
+                <code class="pre pa-10 dib near-black bg-near-white ba b--black-40 shadow-1 br2">
+# Infinite list of primes:
+my @primes = ^∞ .grep: *.is-prime;
+say "1001ˢᵗ prime is @primes[1000]";
+
+# Lazily read words from a file
+.say for '50TB.file.txt'.IO.words;
+                </code>
+                <p>Raku lets you create infinite sequences and provides lazy-evaluating methods to let you iterate over them safely.</p>
+            </article>
+            <article class="pa2 ml3 mr3 flex flex-column space-between">
+                <code class="pre pa-10 dib near-black bg-near-white ba b--black-40 shadow-1 br2">
+start { sleep 1.5; print "hi" }
+await Supply.from-list(&lt;A B C D E F&gt;).throttle: 2, {
+    sleep 0.5;
+    .print
+}
+
+# OUTPUT: ABCDhiEF
+                </code>
+                <p>Asynchronicity and parallelism is first-class in Raku. As a result, there are several helpful built-ins like `Supply` that let you make asynchronous code with ease.</p>
+            </article>
+            <article class="pa2 ml3 mr3 flex flex-column space-between">
+                <code class="pre pa-10 dib near-black bg-near-white ba b--black-40 shadow-1 br2">
+grammar Parser {
+    rule  TOP  { I <love> <lang> }
+    token love { '♥' | love }
+    token lang { &lt;Perl Rust Go Python Ruby&gt; }
+}
+
+say Parser.parse: 'I ♥ Perl';
+# OUTPUT: ｢I ♥ Perl｣ love => ｢♥｣ lang => ｢Perl｣
+                                
+say Parser.parse: 'I love Rust';
+# OUTPUT: ｢I love Rust｣ love => ｢love｣ lang => ｢Rust｣
+                </code>
+                <p>At its core, Raku itself is a grammar created by its implementation. It only makes sense for us to help you to create your own grammars.</p>
+            </article>
+            <article class="h-50 pa3 ml3 mr3 bg-washed-green br2 ba b--green shadow-1">
+                <p>TODO:  RSS feed goes here.</p>
+            </article>
+        </section>
+        <section class="tc pl4 pr4 h-25 w-100 near-black bg-near-white flex justify-center items-center">
+            <h4 class="subheading-font fw5">Raku intends to carry forward the high ideals of the Perl community. It is being developed by a team of dedicated and enthusiastic volunteers. You can help too. The only requirement is that you know how to be nice to all kinds of people (and butterflies). Go to #perl6 (irc.freenode.net) and someone will be glad to help you get started.</h4>
+        </section>
+        <footer class="tc pa1 w-100 white bg-near-black">
+            <h4 class="subheading-font">Created with <span class="red">♥</span> by the Raku community.</h4>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+html,
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+    height: 100%;
+    width: 100%;
+}
+
+code {
+    white-space: pre-line;
+    padding: 10px;
+    font-size: 0.9em;
+    display: inline-block;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+nav li {
+    cursor: pointer;
+}
+
+.heading-font { font-family: "Fira Sans", sans-serif; }
+.subheading-font { font-family: "Open Sans", sans-serif; }
+
+.patterned { background: url("assets/asanoha-400px.png") repeat; }
+
+.new-release {
+    font-size: 9px;
+    padding: 0 3px;
+    height: 14px;
+}
+
+.small-icon { font-size: 16px; }
